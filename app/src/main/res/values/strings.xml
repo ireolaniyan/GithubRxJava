@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GithubRxJava</string>
+
+    <string name="search">Search</string>
+    <string name="search_bar_hint">Enter a github username</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.example.ire.githubrxjava;
 
 /**
  * Created by Ire Olaniyan on 11/12/17.
+ *
  */
 
 public class GithubRepo {
@@ -21,5 +22,29 @@ public class GithubRepo {
         mDescription = description;
         mLanguage = language;
         mStargazersCount = stargazersCount;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    public int getStargazersCount() {
+        return mStargazersCount;
+    }
+
+    public String getName() {
+        return mName;
+    }
+
+    public String getHtmlUrl() {
+        return mHtmlUrl;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public String getLanguage() {
+        return mLanguage;
     }
 }

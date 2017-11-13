@@ -8,6 +8,7 @@ import retrofit2.http.Path;
 
 /**
  * Created by Ire Olaniyan on 11/12/17.
+ *
  */
 
 public interface GithubService {

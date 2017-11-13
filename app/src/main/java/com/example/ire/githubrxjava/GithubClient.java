@@ -10,11 +10,12 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by Ire Olaniyan on 11/12/17.
+ *
  */
 
 public class GithubClient {
@@ -25,12 +26,13 @@ public class GithubClient {
     private static GithubService githubService;
 
     private GithubClient() {
-        final Gson gson =
-                new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
+        final Gson gson = new GsonBuilder()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                .create();
 
-        final Retrofit retrofit =
-                new Retrofit.Builder().baseUrl(GITHUB_BASE_URL)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+        final Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(GITHUB_BASE_URL)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
@@ -38,7 +40,7 @@ public class GithubClient {
         githubService = retrofit.create(GithubService.class);
     }
 
-    private static GithubClient getInstance() {
+    static GithubClient getInstance() {
         if (instance == null) {
             instance = new GithubClient();
         }
